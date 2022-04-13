@@ -20,6 +20,6 @@ app.use('/alien',alienRouter)
 
 
 console.log("starting the server")
-app.listen(9000, function(){
+app.listen(3000, function(){
     console.log("server started")
 })
