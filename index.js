@@ -7,15 +7,19 @@ mongoose.connect(url,{useNewUrlParser:true})
 
 const con = mongoose.connection
 
-con.on('open',function(){
-    console.log('connected...')
+con.on('open', function(){
+    console.log('connected to the database')
 })
 
+console.log("at app.use")
 app.use(express.json())
 
+console.log("configuring route")
 const alienRouter = require('./routes/alien')
 app.use('/alien',alienRouter)
 
-app.listen(9000,function(){
+
+console.log("starting the server")
+app.listen(9000, function(){
     console.log("server started")
 })
