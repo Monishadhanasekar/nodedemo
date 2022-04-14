@@ -3,6 +3,9 @@ const mongoose = require('mongoose')
 const url = 'mongodb+srv://monisha:monisha@cluster0.xcnrz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const app = express()
 
+const dotenv = require('dotenv')
+dotenv.config();
+
 mongoose.connect(url,{useNewUrlParser:true})
 
 const con = mongoose.connection
@@ -20,6 +23,6 @@ app.use('/alien',alienRouter)
 
 
 console.log("starting the server")
-app.listen(3000, function(){
+app.listen(process.env.PORT, function(){
     console.log("server started")
 })
